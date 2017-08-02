@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // TODO replace the key with yours
 const key = '36978c6550efee0e27e50850cc57adda';
-const baseUrl = `http://api.openweathermap.org/data/2.5/forecast?appid=${key}`;
+const baseUrl = `http://api.openweathermap.org/data/2.5/weather?appid=${key}`;
 
 export function getWeatherGroup(code) {
     let group = 'na';
@@ -36,15 +36,15 @@ export function getWeather(city, unit) {
     console.log(`Making request to: ${url}`);
 
     return axios.get(url, {cancelToken: weatherSource.token}).then(function(res) {
-        if (res.data.cod != 200 && res.data.message) {
+        if (res.data.cod && res.data.message) {
             throw new Error(res.data.message);
         } else {
             return {
                 city: capitalize(city),
-                code: res.data.list[0].weather[0].id,
-                group: getWeatherGroup(res.data.list[0].weather[0].id),
-                description: res.data.list[0].weather[0].description,
-                temp: res.data.list[0].main.temp,
+                code: res.data.weather[0].id,
+                group: getWeatherGroup(res.data.weather[0].id),
+                description: res.data.weather[0].description,
+                temp: res.data.main.temp,
                 unit: unit // or 'imperial'
             };
         }

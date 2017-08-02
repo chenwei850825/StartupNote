@@ -17,7 +17,6 @@ import {
 import Today from 'components/Today.jsx';
 import Forecast from 'components/Forecast.jsx';
 
-
 import './Main.css';
 
 export default class Main extends React.Component {
@@ -36,7 +35,6 @@ export default class Main extends React.Component {
     render() {
         return (
             <Router>
-
                 <div className={`main bg-faded ${this.state.group}`}>
                     <div className='container'>
                         <Navbar color="faded" light toggleable>
