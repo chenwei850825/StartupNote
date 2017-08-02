@@ -11,8 +11,13 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink
+    NavLink,
+    Dropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem
 } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 import Today from 'components/Today.jsx';
 import Forecast from 'components/Forecast.jsx';
@@ -30,7 +35,19 @@ export default class Main extends React.Component {
 
         this.handleNavbarToggle = this.handleNavbarToggle.bind(this);
         this.handleUnitChange = this.handleUnitChange.bind(this);
-    }
+
+
+        this.toggle = this.toggle.bind(this);
+        this.state = {
+          dropdownOpen: false
+          };
+        }
+
+        toggle() {
+        this.setState({
+          dropdownOpen: !this.state.dropdownOpen
+          });
+        }
 
     render() {
         return (
@@ -39,27 +56,28 @@ export default class Main extends React.Component {
                     <div className='container'>
                         <Navbar color="faded" light toggleable>
                             <NavbarToggler right onClick={this.handleNavbarToggle}/>
-                            <NavbarBrand className='text-info' href="/">WeatherMood</NavbarBrand>
+                              <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                                <DropdownToggle caret>
+                                  MENU
+                                </DropdownToggle>
+                                <DropdownMenu>
+                                  <DropdownItem>個人資料</DropdownItem>
+                                  <DropdownItem>公共樹</DropdownItem>
+                                  <DropdownItem>其他人的樹</DropdownItem>
+                                </DropdownMenu>
+                              </Dropdown>
                             <Collapse isOpen={this.state.navbarToggle} navbar>
-                                <Nav navbar>
-                                    <NavItem>
-                                        <NavLink tag={Link} to='/'>Today</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink tag={Link} to='/forecast'>Forecast</NavLink>
-                                    </NavItem>
-                                </Nav>
-                                <span className='navbar-text ml-auto'>DataLab</span>
+                                <span className=' ml-auto'>
+                                    <Form>
+                                      <Input  name="search" id="exampleEmail" placeholder="search" />
+                                    </Form>
+                                </span>
+                                <Button className='navbar-text ml-auto' color="link">link</Button>
                             </Collapse>
                         </Navbar>
                     </div>
 
-                    <Route exact path="/" render={() => (
-                        <Today unit={this.state.unit} onUnitChange={this.handleUnitChange} />
-                    )}/>
-                    <Route exact path="/forecast" render={() => (
-                        <Forecast unit={this.state.unit} onUnitChange={this.handleUnitChange} />
-                    )}/>
+                    <img src={`images/startup-concept-colorful-note-written-in-notepad-GP3ND2.jpg`}/>
                 </div>
             </Router>
         );
