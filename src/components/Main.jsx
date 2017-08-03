@@ -61,9 +61,13 @@ export default class Main extends React.Component {
                                   MENU
                                 </DropdownToggle>
                                 <DropdownMenu>
+                                  <DropdownItem>首頁</DropdownItem>
                                   <DropdownItem>個人資料</DropdownItem>
-                                  <DropdownItem>公共樹</DropdownItem>
+                                  <DropdownItem>我的關注</DropdownItem>
                                   <DropdownItem>其他人的樹</DropdownItem>
+                                  <DropdownItem>公共樹</DropdownItem>
+                                  <DropdownItem>網站介紹</DropdownItem>
+                                  <DropdownItem>關於我們</DropdownItem>
                                 </DropdownMenu>
                               </Dropdown>
                             <Collapse isOpen={this.state.navbarToggle} navbar>
