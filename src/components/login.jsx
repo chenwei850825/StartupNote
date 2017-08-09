@@ -6,15 +6,15 @@ import {
 } from 'react-router-dom'
 
 import {
-    Button, 
-    Form, 
-    FormGroup, 
-    Label, 
-    Input, 
+    Button,
+    Form,
+    FormGroup,
+    Label,
+    Input,
     FormText
 } from 'reactstrap';
 
-export default class login extends React.Component {
+export default class Login extends React.Component {
     constructor(props) {
         super(props);
     }
