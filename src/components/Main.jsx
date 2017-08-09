@@ -23,6 +23,7 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import Today from 'components/Today.jsx';
 import Forecast from 'components/Forecast.jsx';
 import Login from 'components/login.jsx';
+import Profile from 'components/Profile.jsx';
 
 import './Main.css';
 
@@ -66,7 +67,11 @@ export default class Main extends React.Component {
                                         </DropdownToggle>
                                         <DropdownMenu>
                                           <DropdownItem>首頁</DropdownItem>
-                                          <DropdownItem>個人資料</DropdownItem>
+                                          <DropdownItem>
+                                            <NavItem>
+                                                <NavLink tag={Link} to='/Profile'>個人資料</NavLink>
+                                            </NavItem>
+                                          </DropdownItem>
                                           <DropdownItem>我的關注</DropdownItem>
                                           <DropdownItem>其他人的樹</DropdownItem>
                                           <DropdownItem>公共樹</DropdownItem>
@@ -91,10 +96,18 @@ export default class Main extends React.Component {
                             <img src={`images/startup-concept-colorful-note-written-in-notepad-GP3ND2.jpg`}/>
                         </div>
                         )}/>
+
+
+                    <Route exact path="/Profile" render={() => (
+                      <Profile/>
+                        )}/>
+
                     <Route exact path="/login" render={() => (
                     <Login unit={this.state.unit} onUnitChange={this.handleUnitChange} />
                     )}/>
-                </div>  
+
+
+                </div>
             </Router>
         );
     }
