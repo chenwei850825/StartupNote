@@ -24,6 +24,7 @@ import Today from 'components/Today.jsx';
 import Forecast from 'components/Forecast.jsx';
 import Login from 'components/login.jsx';
 import Profile from 'components/Profile.jsx';
+import NavBar from 'components/NavBar.jsx';
 
 import './Main.css';
 
@@ -93,14 +94,26 @@ export default class Main extends React.Component {
                                     </Collapse>
                                 </Navbar>
                             </div>
+
+
+
+
+
                             <img src={`images/startup-concept-colorful-note-written-in-notepad-GP3ND2.jpg`}/>
                         </div>
+
+
+
                         )}/>
 
 
-                    <Route exact path="/Profile" render={() => (
-                      <Profile/>
-                        )}/>
+
+
+
+                        <Route exact path="/Profile" render={() => (
+                            <NavBar/>
+                            
+                            )}/>
 
                     <Route exact path="/login" render={() => (
                     <Login unit={this.state.unit} onUnitChange={this.handleUnitChange} />
