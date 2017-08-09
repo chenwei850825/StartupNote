@@ -69,7 +69,7 @@ export default class NavBar extends React.Component {
                     </Dropdown>
                   <Collapse isOpen={this.state.navbarToggle} navbar>
                       <span className=' ml-auto'>
-                          <Form>
+                          <Form  onSubmit={this.props.onSearch}>
                             <Input  name="search" id="exampleEmail" placeholder="search" />
                           </Form>
                       </span>
@@ -100,4 +100,7 @@ export default class NavBar extends React.Component {
         });
     }
 
+    handleSubmit(e) {
+      this.props.router.push('/some/location');
+      }
 }

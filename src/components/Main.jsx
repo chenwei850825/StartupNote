@@ -39,11 +39,12 @@ export default class Main extends React.Component {
 
         this.handleNavbarToggle = this.handleNavbarToggle.bind(this);
         this.handleUnitChange = this.handleUnitChange.bind(this);
-
+        this.handleNavbarSearch = this.handleNavbarSearch.bind(this);
 
         this.toggle = this.toggle.bind(this);
         this.state = {
-          dropdownOpen: false
+          dropdownOpen: false,
+          isSearch: false
           };
         }
 
@@ -54,21 +55,32 @@ export default class Main extends React.Component {
         }
 
     render() {
+      let content = null;
+      if(this.state.isSearch){
+        content = <h1>test</h1>;
+      }else{
+          content = <img src={`images/startup-concept-colorful-note-written-in-notepad-GP3ND2.jpg`}/>;
+
+      }
         return (
             <Router>
                 <div>
 
                     <Route exact path="/" render={() => (
                       <div>
-                        <NavBar/>
-                        <img src={`images/startup-concept-colorful-note-written-in-notepad-GP3ND2.jpg`}/>
+                        <NavBar onSearch = {this.handleNavbarSearch}/>
+                          {content}
                       </div>
                       )}/>
 
 
 
                     <Route exact path="/Profile" render={() => (
-                      <NavBar/>
+                      <div>
+                        <NavBar/>
+                        <Profile/>
+                      </div>
+
                     )}/>
 
                     <Route exact path="/login" render={() => (
@@ -85,6 +97,14 @@ export default class Main extends React.Component {
         this.setState((prevState, props) => ({
             navbarToggle: !prevState.navbarToggle
         }));
+    }
+
+    handleNavbarSearch(e) {
+        this.setState({
+            isSearch: true
+        });
+        //console.log("search");
+        e.preventDefault();
     }
 
     handleUnitChange(unit) {
