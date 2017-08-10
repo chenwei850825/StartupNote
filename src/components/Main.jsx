@@ -31,6 +31,7 @@ import Forecast from 'components/Forecast.jsx';
 import Login from 'components/Login.jsx';
 import Profile from 'components/Profile.jsx';
 import NavBar from 'components/NavBar.jsx';
+import SearchResult from 'components/SearchResult.jsx';
 
 import './Main.css';
 
@@ -63,63 +64,7 @@ export default class Main extends React.Component {
     render() {
       let content = null;
       if(this.state.isSearch){
-        content = 
-        <div>
-          <Card>
-            <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-            <CardBlock>
-              <CardTitle>Card title</CardTitle>
-              <CardSubtitle>Card subtitle</CardSubtitle>
-              <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-              <Button>Button</Button>
-            </CardBlock>
-          </Card>
-          <Card>
-            <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-            <CardBlock>
-              <CardTitle>Card title</CardTitle>
-              <CardSubtitle>Card subtitle</CardSubtitle>
-              <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-              <Button>Button</Button>
-            </CardBlock>
-          </Card>
-          <Card>
-            <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-            <CardBlock>
-              <CardTitle>Card title</CardTitle>
-              <CardSubtitle>Card subtitle</CardSubtitle>
-              <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-              <Button>Button</Button>
-            </CardBlock>
-          </Card>
-          <Card>
-            <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-            <CardBlock>
-              <CardTitle>Card title</CardTitle>
-              <CardSubtitle>Card subtitle</CardSubtitle>
-              <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-              <Button>Button</Button>
-            </CardBlock>
-          </Card>
-          <Card>
-            <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-            <CardBlock>
-              <CardTitle>Card title</CardTitle>
-              <CardSubtitle>Card subtitle</CardSubtitle>
-              <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-              <Button>Button</Button>
-            </CardBlock>
-          </Card>
-          <Card>
-            <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-            <CardBlock>
-              <CardTitle>Card title</CardTitle>
-              <CardSubtitle>Card subtitle</CardSubtitle>
-              <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-              <Button>Button</Button>
-            </CardBlock>
-          </Card>
-        </div>;
+        content = <SearchResult/>;
       }else{
           content = <img src={`images/startup-concept-colorful-note-written-in-notepad-GP3ND2.jpg`}/>;
 

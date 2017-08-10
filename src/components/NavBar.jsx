@@ -61,7 +61,6 @@ export default class NavBar extends React.Component {
                           </NavItem>
                         </DropdownItem>
                         <DropdownItem>我的關注</DropdownItem>
-                        <DropdownItem>其他人的樹</DropdownItem>
                         <DropdownItem>公共樹</DropdownItem>
                         <DropdownItem>網站介紹</DropdownItem>
                         <DropdownItem>關於我們</DropdownItem>
