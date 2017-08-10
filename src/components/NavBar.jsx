@@ -60,7 +60,11 @@ export default class NavBar extends React.Component {
                               <NavLink tag={Link} to='/Profile'>個人資料</NavLink>
                           </NavItem>
                         </DropdownItem>
-                        <DropdownItem>我的關注</DropdownItem>
+                        <DropdownItem>
+                        <NavItem>
+                              <NavLink tag={Link} to='/MyAttention'>我的關注</NavLink>
+                          </NavItem>
+                        </DropdownItem>
                         <DropdownItem>公共樹</DropdownItem>
                         <DropdownItem>網站介紹</DropdownItem>
                         <DropdownItem>關於我們</DropdownItem>

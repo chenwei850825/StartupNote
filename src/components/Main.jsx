@@ -32,6 +32,7 @@ import Login from 'components/Login.jsx';
 import Profile from 'components/Profile.jsx';
 import NavBar from 'components/NavBar.jsx';
 import SearchResult from 'components/SearchResult.jsx';
+import MyAttention from 'components/MyAttention.jsx';
 
 import './Main.css';
 
@@ -90,8 +91,15 @@ export default class Main extends React.Component {
 
                     )}/>
 
+                    <Route exact path="/MyAttention" render={() => (
+                      <div>
+                        <NavBar/>
+                        <MyAttention/>
+                      </div>
+                    )}/>
+
                     <Route exact path="/login" render={() => (
-                      <Login unit={this.state.unit} onUnitChange={this.handleUnitChange} />
+                      <Login/>
                     )}/>
 
 
