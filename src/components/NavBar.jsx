@@ -47,7 +47,7 @@ export default class NavBar extends React.Component {
         return (
           <div className={`main bg-faded ${this.state.group}`}>
           <div className='container'>
-              <Navbar color="faded" light toggleable>
+              <Navbar fixed="top" color="faded" light toggleable>
                   <NavbarToggler right onClick={this.handleNavbarToggle}/>
                     <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                       <DropdownToggle caret>
