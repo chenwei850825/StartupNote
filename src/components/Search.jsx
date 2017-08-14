@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 import { Button, Form, FormGroup, Label, Input, FormText, Container, Row, Col} from 'reactstrap';
 
-export default class Profile extends React.Component {
+export default class Search extends React.Component {
     constructor(props) {
         super(props);
 

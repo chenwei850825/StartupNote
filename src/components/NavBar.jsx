@@ -19,6 +19,7 @@ import {
 } from 'reactstrap';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
+
 export default class NavBar extends React.Component {
     constructor(props) {
         super(props);
@@ -63,7 +64,7 @@ export default class NavBar extends React.Component {
                         <DropdownItem>
                         <NavItem>
                               <NavLink tag={Link} to='/MyAttention'>我的關注</NavLink>
-                          </NavItem>
+                        </NavItem>
                         </DropdownItem>
                         <DropdownItem>公共樹</DropdownItem>
                         <DropdownItem>網站介紹</DropdownItem>
