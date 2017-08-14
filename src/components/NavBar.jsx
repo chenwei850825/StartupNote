@@ -100,7 +100,5 @@ export default class NavBar extends React.Component {
         });
     }
 
-    handleSubmit(e) {
-      this.props.router.push('/some/location');
-      }
+
 }

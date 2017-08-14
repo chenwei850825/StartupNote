@@ -1,55 +1,68 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
-
-
-
+import {
+  Card,
+  Button,
+  CardImg,
+  CardTitle,
+  CardText,
+  CardDeck,
+  CardSubtitle,
+  CardBlock
+} from 'reactstrap';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 import './Main.css';
-
+import AboutMe from 'components/AboutMe.jsx';
+import MyTree from 'components/MyTree.jsx';
 
 export default class Profile extends React.Component {
-    constructor(props) {
-        super(props);
-        }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-      return (
-    <Container>
-      <Row>
-        <Col>.col</Col>
-      </Row>
-      <Row>
-        <Col>.col</Col>
-        <Col>.col</Col>
-        <Col>.col</Col>
-        <Col>.col</Col>
-      </Row>
-      <Row>
-        <Col xs="3">.col-3</Col>
-        <Col xs="auto">.col-auto - variable width content</Col>
-        <Col xs="3">.col-3</Col>
-      </Row>
-      <Row>
-        <Col xs="6">.col-6</Col>
-        <Col xs="6">.col-6</Col>
-      </Row>
-      <Row>
-        <Col xs="6" sm="4">.col-6 .col-sm-4</Col>
-        <Col xs="6" sm="4">.col-6 .col-sm-4</Col>
-        <Col sm="4">.col .col-sm-4</Col>
-      </Row>
-      <Row>
-        <Col sm={{ size: 6, push: 2, pull: 2, offset: 1 }}>.col .col-sm-6 .col-sm-push-2 .col-sm-pull-2 .col-sm-offset-2</Col>
-      </Row>
-      <Row>
-        <Col sm="12" md={{ size: 8, offset: 2 }}>.col .col-sm-12 .col-md-6 .col-md-offset-3</Col>
-      </Row>
-      <Row>
-        <Col sm={{ size: 'auto', offset: 1 }}>.col .col-sm .col-sm-offset-1</Col>
-        <Col sm={{ size: 'auto', offset: 1 }}>.col .col-sm .col-sm-offset-1</Col>
-      </Row>
-    </Container>
-  );
-    }
+  render() {
+    return (
+      <Router>
+        <div>
+
+          <Route exact path="/Profile" render={() => (
+            <div>
+              <CardDeck>
+                <Card>
+                  <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap"/>
+                  <CardBlock>
+                    <CardTitle>
+                      <Link to='/AboutMe'>關於我</Link>
+                    </CardTitle>
+                  </CardBlock>
+                </Card>
+                <Card>
+                  <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap"/>
+                  <CardBlock>
+                    <CardTitle>
+                      <Link to='/MyTree'>我的樹</Link>
+                    </CardTitle>
+                  </CardBlock>
+                </Card>
+              </CardDeck>
+            </div>
+          )}/>
+
+          <Route exact path="/AboutMe" render={() => (
+            <div>
+              <AboutMe/>
+            </div>
+          )}/>
+          <Route exact path="/MyTree" render={() => (
+            <div>
+              <MyTree/>
+            </div>
+          )}/>
+
+        </div>
+      </Router>
+
+    );
+  }
 
 }

@@ -1,24 +1,27 @@
 import React from 'react';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom'
-import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    Dropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem
-} from 'reactstrap';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from 'reactstrap';
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormText
+} from 'reactstrap';
 
 import Today from 'components/Today.jsx';
 import Forecast from 'components/Forecast.jsx';
@@ -29,88 +32,78 @@ import NavBar from 'components/NavBar.jsx';
 import './Main.css';
 
 export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            unit: 'metric',
-            navbarToggle: false
-        };
+    this.state = {
+      unit: 'metric',
+      navbarToggle: false
+    };
 
-        this.handleNavbarToggle = this.handleNavbarToggle.bind(this);
-        this.handleUnitChange = this.handleUnitChange.bind(this);
-        this.handleNavbarSearch = this.handleNavbarSearch.bind(this);
+    this.handleNavbarToggle = this.handleNavbarToggle.bind(this);
+    this.handleUnitChange = this.handleUnitChange.bind(this);
+    this.handleNavbarSearch = this.handleNavbarSearch.bind(this);
 
-        this.toggle = this.toggle.bind(this);
-        this.state = {
-          dropdownOpen: false,
-          isSearch: false
-          };
-        }
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      dropdownOpen: false,
+      isSearch: false
+    };
+  }
 
-        toggle() {
-        this.setState({
-          dropdownOpen: !this.state.dropdownOpen
-          });
-        }
+  toggle() {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
+  }
 
-    render() {
-      let content = null;
-      if(this.state.isSearch){
-        content = <h1>test</h1>;
-      }else{
-          content = <img src={`images/startup-concept-colorful-note-written-in-notepad-GP3ND2.jpg`}/>;
-
-      }
-        return (
-            <Router>
-                <div>
-
-                    <Route exact path="/" render={() => (
-                      <div>
-                        <NavBar onSearch = {this.handleNavbarSearch}/>
-                          {content}
-                      </div>
-                      )}/>
-
-
-
-                    <Route exact path="/Profile" render={() => (
-                      <div>
-                        <NavBar/>
-                        <Profile/>
-                      </div>
-
-                    )}/>
-
-                    <Route exact path="/login" render={() => (
-                      <Login unit={this.state.unit} onUnitChange={this.handleUnitChange} />
-                    )}/>
-
-
-                </div>
-            </Router>
-        );
+  render() {
+    let content = null;
+    if (this.state.isSearch) {
+      content = <h1>test</h1>;
+    } else {
+      content = <img src={`images/startup-concept-colorful-note-written-in-notepad-GP3ND2.jpg`}/>;
     }
+    return (
+      <Router>
+        <div>
 
-    handleNavbarToggle() {
-        this.setState((prevState, props) => ({
-            navbarToggle: !prevState.navbarToggle
-        }));
-    }
+          <Route exact path="/" render={() => (
+            <div>
+              <NavBar onSearch={this.handleNavbarSearch}/> {content}
+            </div>
+          )}/>
 
-    handleNavbarSearch(e) {
-        this.setState({
-            isSearch: true
-        });
-        //console.log("search");
-        e.preventDefault();
-    }
+          <Route exact path="/Profile" render={() => (
+            <div>
+              <NavBar/>
+              <Profile/>
+            </div>
+          )}/>
 
-    handleUnitChange(unit) {
-        this.setState({
-            unit: unit
-        });
-    }
+          <Route exact path="/login" render={() => (<Login unit={this.state.unit} onUnitChange={this.handleUnitChange}/>)}/>
+
+        </div>
+      </Router>
+    );
+  }
+
+  handleNavbarToggle() {
+    this.setState((prevState, props) => ({
+      navbarToggle: !prevState.navbarToggle
+    }));
+  }
+
+  handleNavbarSearch(e) {
+    e.preventDefault();
+
+    this.setState({isSearch: true});
+    //console.log("search");
+
+  }
+
+  handleUnitChange(unit) {
+    this.setState({unit: unit});
+  }
 
 }
