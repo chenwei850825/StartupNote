@@ -57,8 +57,8 @@ export default class Main extends React.Component {
          content = <SearchResult/>;
        }else{
            content =
-           <div class = "background">
-             <img src={`images/background.jpg`}/>
+           <div >
+             <img src={`images/background.jpg`} className = "background"/>
            </div>;
 
        }
